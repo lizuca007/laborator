@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>L6_B</title>
+  <style>
+    #par1 {
+      color: rgb(112, 24, 39);
+      font-weight: bold;
+    }
+
+    #par2 {
+      color: hotpink;
+      font-style: italic;
+    }
+    
+  </style>
+</head>
+<body style="background-color: pink;">
+  <button id="swap" type="button">Schimba textele</button>
+  <p id="par1">text unu</p>
+  <p id="par2">text doi</p>
+
+  <script>
+    const paragrafe = document.querySelectorAll("p");
+
+    paragrafe.forEach((paragraf) => {
+      paragraf.addEventListener("click", () => {
+        const textNou = prompt("Introduceti textul nou:", paragraf.textContent);
+        if (textNou !== null) {
+          paragraf.textContent = textNou;
+        }
+      });
+    });
+
+    document.getElementById("swap").addEventListener("click", () => {
+      const first = document.getElementById("par1");
+      const last = document.getElementById("par2");
+      const textFirst = first.textContent;
+
+      first.textContent = last.textContent;
+      last.textContent = textFirst;
+    });
+  </script>
+</body>
+</html>
